@@ -1,13 +1,31 @@
 <?php
 
-$pdo = new PDO('mysql:host=localhost;dbname=site_ecommerce', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING, PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
+require_once 'connexion.php';
+require_once 'host.php';
+
+// identifiants de connexion au server local ou serveur distant
+if ($_SERVER['SERVER_NAME'] == 'localhost' || $_SERVER['SERVER_NAME'] == '127.0.0.1'){
+    // Si serveur local
+    $pdo_host = 'localhost';
+    $pdo_dbname = 'seconde_vie';
+    $pdo_user = 'root';
+    $pdo_pwd = '';
+} else {
+    // Si serveur distant
+    $pdo_host = $connexion->getPdo_host();
+    $pdo_dbname = $connexion->getPdo_dbname();
+    $pdo_user = $connexion->getPdo_user();
+    $pdo_pwd = $connexion->getPdo_pwd();
+}
+
+$pdo = new PDO('mysql:host='.$pdo_host.';dbname='.$pdo_dbname, $pdo_user, $pdo_pwd, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING, PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
 
 // initiation de la session
 session_start();
 
 
 // chemin du site
-define('SITE', '/projet-cezevogue/');
+define('SITE', '/seconde-vie/');
 
 // variable d'affichage
 

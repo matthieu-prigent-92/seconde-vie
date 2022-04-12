@@ -1,0 +1,230 @@
+footer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    color:white;
+    background: #1d1d1b;    
+}
+footer div {
+    /* border: 1px solid red; */
+}
+
+footer iframe {
+    border-radius: 2px;
+}
+
+footer a {
+    text-decoration: none;
+}
+
+footer ul {
+    padding-left: 0;
+    list-style-type: none;
+}
+
+footer li {
+    font-family: 'Open Sans', sans-serif;
+    font-weight:400;
+}
+
+.contenu-footer {
+    margin: 0 auto;
+    padding: 4rem 0 0;
+    display: grid;
+    grid-template-columns: repeat(6 , 1fr);
+    grid-template-rows: auto;
+    grid-gap: 2vw;
+    font-size: .75rem;    
+}
+
+.location-map {
+    margin-right: 2rem;
+}
+
+
+.footer-services,
+.footer-contact,
+.footer-horaires {
+    text-align: left;
+}
+
+.footer-services h3,
+.footer-contact h3,
+.footer-horaires h3 {
+    font-size: 1.125rem;
+    padding-bottom: 1.25rem;
+    color:white;
+}
+
+.footer-contact p {
+    padding: 5px 0;
+}
+
+.liste-services li, .liste-contact li {
+    padding: 2px 0;
+}
+
+.footer-logo {
+    position: relative;
+    margin-bottom: 0.5rem;
+    width: 20vw; 
+    height: 15vw;
+    align-self: center;
+}
+.footer-logo:before {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: 0 auto 0.5rem;
+    padding: 1rem;
+    content: "";
+    width: 180px;
+    height: 100px;
+    background-image: url(../upload/logo.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.footer-copyright p {
+    text-align: center;
+    font-size: .75rem;
+}
+
+
+/*Responsive*/
+@media screen and (min-width: 993px) {
+
+    .location-map {
+        grid-area: 1 / 1 / 2 / 4;
+    }
+
+    .footer-services {
+        grid-area: 1 / 4 / 2 / 5;
+    }
+
+    .footer-contact {
+        grid-area: 1 / 5 / 2 / 6;
+    }
+
+    .footer-horaires {
+        grid-area: 1 / 6 / 2 / 7;
+
+    }
+
+}
+
+
+
+@media screen and (max-width: 992px) {
+
+    .location-map {
+        grid-area: 2 / 1 / 3 / 7;
+        margin-right:0;
+    }
+
+    .footer-services {
+        grid-area: 1 / 1 / 2 / 3;
+    }
+
+    .footer-contact {
+        grid-area: 1 / 3 / 2 / 5;
+    }
+
+    .footer-horaires {
+        grid-area: 1 / 5 / 2 / 7;
+
+    }
+
+}
+
+
+
+@media screen and (max-width: 768px) {
+
+    footer {
+        margin: 0 auto;
+        padding: 1rem;
+        width: 98%;    
+    }
+
+    .location-map {
+        grid-area: 2 / 3 / 3 / 7;
+        margin-right:0;
+    }
+
+    .footer-services {
+        grid-area: 2 / 1 / 3/ 3;
+    }
+
+    .footer-contact {
+        grid-area: 1 / 1 / 2 / 4;
+    }
+
+    .footer-horaires {
+        grid-area: 1 / 4 / 2 / 7;
+
+    }
+
+}
+
+@media screen and (max-width:576px) {
+
+    footer {
+        margin: 0 auto;
+        padding: 1rem;
+        width: 98%;    
+    }
+    footer * {
+        text-align: center;
+    }
+
+    .location-map {
+        grid-area: 4 / 1 / 5 / 7;
+        margin-right:0;
+    }
+
+    .footer-services {
+        grid-area: 3 / 1 / 4/ 7;
+    }
+
+    .footer-contact {
+        grid-area: 1 / 1 / 2 / 7;
+    }
+
+    .footer-horaires {
+        grid-area: 2 / 1 / 3 / 7;
+
+    }
+    .footer-services,
+    .footer-contact,
+    .footer-horaires {
+        position: relative;
+        padding-bottom: 2rem;
+        margin-bottom: 1rem;
+
+    } 
+    .footer-services h3, 
+    .footer-contact h3, 
+    .footer-horaires h3 {
+        padding-bottom: 0.5rem;
+    }
+    
+    .footer-services:after,
+    .footer-contact:after,
+    .footer-horaires:after {
+        position: absolute;
+        bottom:0;
+        left: 50%;
+        content: "";
+        width: 28px;
+        height: 42px;
+        background-image: url(../upload/Feuilles.svg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        transform: rotate(-10deg);
+    }
+
+
+}

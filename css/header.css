@@ -1,0 +1,266 @@
+html, * {
+    margin:0;
+    padding:0;
+    border: none;
+}
+
+.site-header {
+    padding-top:2rem;
+    position: relative;
+    height: 52.25vw; /* to fit background image size 1909px x 998px */
+    text-align: center;
+    /* background-image: url("../upload/Header.jpg"); */
+    /* background-size: cover; */
+}
+
+
+/** BANDEAU NAVBAR **/
+.navbar-nav li {
+    padding: 0 1.5rem;
+}
+
+.navbar-nav .nav-link {
+    padding: 1rem;
+    color: #DE6B67 !important;
+}
+
+.navbar-nav .nav-link:hover {
+    /* transform: rotate(-5deg);
+    transition: all 500ms ease; */
+    color: #fff !important;
+    /* cursor: url(../upload/asperge-default.svg), auto; */
+}
+
+/* SEARCH */
+.search-container {
+    position: relative;
+    width: 40vw;
+    margin: 0 auto;
+    background: #DE6B67;
+    padding: 0.5rem;
+    border-radius: 2rem;
+}
+
+.search-container button {
+    color: white;
+    font-size: 1.5rem;
+    background: none;
+}
+
+.search-container>input {
+    font-family: 'Open Sans', sans-serif;
+    border-radius: 2rem;
+}
+
+/* BOUTON CONNEXION */
+.nav-connexion a{
+    padding: 1rem;
+    color: #fff;
+}
+
+.nav-connexion a:hover{
+    color: #DE6B67;
+    border: solid 2px #DE6B67;
+    background: none;
+}
+/* ICONE DECONNEXION */
+.fa-power-off {
+    color: #DE6B67;
+}
+
+.fa-power-off:hover {
+    transform: rotate(360deg);
+    transition: all 1000ms ease-in-out;
+    /* cursor: url(../upload/asperge-default.svg), auto; */
+    transition: all 500ms ease;
+}
+
+
+/* LOGO */
+.logo-titre {
+    color:#DE6B67 !important;
+}
+.logo-container {
+    padding-top: 4vh;
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    text-align: center;
+}
+
+.logo-container h2 {    
+    padding: 0;
+}
+
+.logo-container h2 {
+    margin-left: -100000px;
+    padding: 0;
+    font-family: 'Mystery Quest', cursive; 
+    text-transform: none;
+    font-size: 4rem;
+    color: #405a24;
+    font-weight: 900;
+    text-shadow: 2px 2px 2px white;
+}
+
+.logo {
+    position: relative;
+    margin-bottom: 1rem;
+    width: 24rem;
+    height: 14rem;
+}
+
+.logo:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 22rem;
+    height: 12rem;
+    /* background-image: url(../upload/logo.svg); */
+    /* background-size: cover; */
+}
+
+.logo:after {
+    content: "Donnez une seconde vie à vos articles";
+    position: absolute;
+    text-align: center;
+    bottom: 0;
+    left: 0;
+    width: 22rem;
+}
+
+/* MODAL CONNEXION */
+.modal-title{
+    margin: 0 0 0 auto;
+}
+.modal-content{
+    border-radius: 0.5rem !important;
+}
+
+.card-button{
+    display: flex;
+    justify-content: center;
+}
+
+
+
+
+
+
+/* NOT USED */
+
+/* MAIN-NAVIGATION */
+.main-navigation {
+    width: 70vw;
+    margin: 0 auto;
+    border-radius: 1rem;
+}
+
+.main-navigation ul {
+    margin: 0 auto;
+    padding: 0 1rem;
+    font-size: 1rem;
+    border-bottom: 2px dotted #5c9544;
+    border-top: 2px dotted #f7aa58;
+    border-radius: 2rem;
+}
+
+.main-navigation a {
+    transition: all 500ms ease;
+}
+
+.main-navigation a:hover {
+    color: orange;
+    font-weight: 900;
+    cursor: url(../upload/asperge-default.svg), auto;
+    transform: rotate(-10deg);
+    transition: all 500ms ease;
+}
+
+.basket .btn {
+    background-color: #5c9544;
+    border-color: #5c9544;
+}
+
+.top-navigation a:hover.basket {
+    color: #f7aa58;
+    font-weight: 900;    
+    transform: rotate(-20deg);
+    transition: all 500ms ease;
+    cursor: url(../upload/asperge-default.svg), auto;
+} 
+
+.top-navigation a button:hover {
+    color:#fff;
+}
+
+/* TOP-NAVIGATION */
+.top-navigation {
+    position: absolute;
+    top: 1rem;
+    justify-content: flex-end;
+}
+
+.top-navigation .navbar li {
+    padding: 0;
+}
+
+
+
+.top-navigation a {
+    padding: .75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
+    transition: all 500ms ease;
+}
+
+a.connection {
+    letter-spacing: 0;
+}
+
+.top-navigation a:hover.connection {
+    color: #f7aa58;
+    font-weight: 900;    
+    transform: rotate(-15deg);
+    transition: all 500ms ease;
+    cursor: url(../upload/asperge-default.svg), auto;
+    transition: all 500ms ease;
+} 
+
+a.deconnection {
+    display: block;
+    position: relative;
+    top: 0.5rem;
+    left: 1.5rem;
+}
+
+.top-navigation li:hover, 
+.top-navigation a:hover, 
+.top-navigation a button:hover,
+.top-navigation a button i:hover
+.top-navigation a button i span:hover {
+    cursor: url(../upload/asperge-default.svg), auto;
+    transition: all 500ms ease;
+}
+
+.fab {
+    color: #47b06b;    
+}
+
+/* SOCIAL-MENU */
+.social-menu {
+    position: absolute;
+    top: 1rem;
+    left: 0;
+    right:0;
+    width: 200px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    text-align: left;
+    z-index: 20;
+}
