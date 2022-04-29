@@ -1,14 +1,16 @@
 // 1-SELECTEURS
 let texteH2 = document.querySelector("h2"),
   inputNom = document.getElementById("nickname"),
-  inputEmail = document.getElementById("inputEmailRegister"),
-  inputPassword = document.getElementById("inputPasswordRegister"),
+  inputTel = document.getElementById("telephone"),
+  inputEmailRegister = document.getElementById("inputEmailRegister"),
+  inputPasswordRegister = document.getElementById("inputPasswordRegister"),
   inputPasswordVerif = document.getElementById("inputConfirmPasswordRegister"),
   errorNom = document.getElementById("errorNom"),
-  errorEmail = document.getElementById("errorEmailRegister"),
-  errorPassword = document.getElementById("errorPasswordRegister"),
+  errorTel = document.getElementById("errorTel"),
+  errorEmailRegister = document.getElementById("errorEmailRegister"),
+  errorPasswordRegister = document.getElementById("errorPasswordRegister"),
   errorPasswordVerif = document.getElementById("errorPassword-verifRegister"),
-  togglePassword = document.querySelector("#togglePasswordRegister"),
+  togglePasswordRegister = document.getElementById("togglePasswordRegister"),
   togglePasswordVerif = document.querySelector("#togglePassword-verifRegister");
 
 // Event sur l'input NOM
@@ -33,23 +35,44 @@ inputNom.addEventListener("change", function (e) {
     ).style.visibility = "visible";
   }
 });
+// Event sur l'input TEL
+inputTel.addEventListener("change", function (e) {
+  let tel = e.target.value;
+
+  if (tel != "") {
+    inputTel.style.border = "2px solid #65da97";
+    errorTel.innerHTML = "";
+    document.querySelector("#telephone + .fa-check-circle").style.visibility =
+      "visible";
+    document.querySelector(
+      "#telephone + .fa-check-circle + .fa-exclamation-circle"
+    ).style.visibility = "hidden";
+  } else {
+    inputTel.style.border = "2px solid #e74c3c";
+    errorTel.innerHTML = "Veuillez renseigner votre numéro de téléphone";
+    errorTel.style.color = "#e74c3c";
+    document.querySelector(
+      "#telephone + .fa-check-circle + .fa-exclamation-circle"
+    ).style.visibility = "visible";
+  }
+});
 
 // Event sur l'input EMAIL
-inputEmail.addEventListener("change", function (e) {
+inputEmailRegister.addEventListener("change", function (e) {
   let email = e.target.value;
 
   if (email.includes("@")) {
-    inputEmail.style.border = "2px solid #65da97";
-    errorEmail.innerHTML = "";
+    inputEmailRegister.style.border = "2px solid #65da97";
+    errorEmailRegister.innerHTML = "";
     document.querySelector("#inputEmailRegister + .fa-check-circle").style.visibility =
       "visible";
     document.querySelector(
       "#inputEmailRegister + .fa-check-circle + .fa-exclamation-circle"
     ).style.visibility = "hidden";
   } else {
-    inputEmail.style.border = "2px solid #e74c3c";
-    errorEmail.innerHTML = "L'adresse email est incorrecte";
-    errorEmail.style.color = "#e74c3c";
+    inputEmailRegister.style.border = "2px solid #e74c3c";
+    errorEmailRegister.innerHTML = "L'adresse email est incorrecte";
+    errorEmailRegister.style.color = "#e74c3c";
     document.querySelector("#inputEmailRegister + .fa-check-circle").style.visibility =
       "hidden";
     document.querySelector(
@@ -59,22 +82,22 @@ inputEmail.addEventListener("change", function (e) {
 });
 
 // Event sur l'input PASSWORD
-inputPassword.addEventListener("change", function (e) {
+inputPasswordRegister.addEventListener("change", function (e) {
   let password = e.target.value;
 
   if (password.length >= 5) {
-    inputPassword.style.border = "2px solid #65da97";
-    errorPassword.innerHTML = "";
+    inputPasswordRegister.style.border = "2px solid #65da97";
+    errorPasswordRegister.innerHTML = "";
     document.querySelector("#inputPasswordRegister + .fa-check-circle").style.visibility =
       "visible";
     document.querySelector(
       "#inputPasswordRegister + .fa-check-circle + .fa-exclamation-circle"
     ).style.visibility = "hidden";
   } else {
-    inputPassword.style.border = "2px solid #e74c3c";
-    errorPassword.innerHTML =
+    inputPasswordRegister.style.border = "2px solid #e74c3c";
+    errorPasswordRegister.innerHTML =
       "Le mot de passe doit faire au moins 5 caractères";
-    errorPassword.style.color = "#e74c3c";
+    errorPasswordRegister.style.color = "#e74c3c";
     document.querySelector("#inputPasswordRegister + .fa-check-circle").style.visibility =
       "hidden";
     document.querySelector(
@@ -111,12 +134,12 @@ inputPasswordVerif.addEventListener("change", function (e) {
 });
 
 // Event sur l'input PASSWORD avec permutation de visibilité des caractères
-togglePassword.addEventListener("click", function () {
-  console.log("Click to togglePassword");
+togglePasswordRegister.addEventListener("click", function () {
+  console.log("Click to togglePasswordRegister");
   // toggle the type attribute
   let type =
-    inputPassword.getAttribute("type") === "password" ? "text" : "password";
-  inputPassword.setAttribute("type", type);
+    inputPasswordRegister.getAttribute("type") === "password" ? "text" : "password";
+  inputPasswordRegister.setAttribute("type", type);
 
   // toggle the icon
   this.classList.toggle("fa-eye-slash");
@@ -124,6 +147,7 @@ togglePassword.addEventListener("click", function () {
 
 // Event sur l'input PASSWORDVERIF avec permutation de visibilité des caractères
 togglePasswordVerif.addEventListener("click", function () {
+  console.log("Click to togglePasswordVerif");
   // toggle the type attribute
   let type =
     inputPasswordVerif.getAttribute("type") === "password"

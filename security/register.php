@@ -48,7 +48,7 @@ if (!empty($_POST)) :
     endif;
 
     if (!isset($_POST['email']) || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) :
-        $_SESSION['messages']['danger'][] = "email invalide";
+        $_SESSION['messages']['danger'][] = "L'adresse email est mal renseignée ou absente";
 
         header('location:./register.php');
         exit();
@@ -56,7 +56,7 @@ if (!empty($_POST)) :
 
     if (!password_strength_check($_POST['password'])) :
 
-        $_SESSION['messages']['danger'][] = "Votre mot de passe doit contenir au minimum 6 caractères, maximum 15 caractères,majuscule, minuscule et un caractère spécial ! # @ % & * + -";
+        $_SESSION['messages']['danger'][] = "Votre mot de passe est invalide, il doit contenir de 6 à 15 caractères, au minimum une majuscule, une minuscule et un caractère spécial (! # @ % $ )";
         header('location:./register.php');
         exit();
 
@@ -67,17 +67,18 @@ if (!empty($_POST)) :
 
         $mdp = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-        executeRequete("INSERT INTO user (nickname, email, password, roles) VALUES (:nickname, :email, :password, :roles)", array(
+        executeRequete("INSERT INTO user (nickname, email, password, tel, roles) VALUES (:nickname, :email, :password, :tel, :roles)", array(
             ':nickname' => $_POST['nickname'],
             ':email' => $_POST['email'],
             ':password' => $mdp,
-            ':roles' => 'ROLE_USER'
+            ':tel' => $_POST['telephone'],
+            ':roles' => 'ROLE_ADMIN'
 
         ));
 
         $_SESSION['messages']['success'][] = "Félicitation, vous êtes à présent inscrit";
 
-        header('location:./login.php');
+        header('location:../');
         exit();
 
     else :
@@ -96,7 +97,7 @@ endif;
 ?>
 
 
-<form method="post" action="">
+<form method="POST" action="">
 
     <div class="mask d-flex align-items-center h-100 gradient-custom-3">
         <div class="container h-100">
@@ -108,62 +109,73 @@ endif;
 
                             <!-- cadre pour faire afficher la photo de l'utilisateur -->
                             <div class="conteneur-photo">
-                                    <div class="photo" id="display-image">
-                                        <img id="img" alt="">
-                                        <label for="image-input">
-                                            <i class="fas fa-upload fa-2x"></i>
-                                        </label>
-                                    </div>
-                                    <div>
-                                        <input type="file" id="image-input" onchange="loadFile(event)" accept="image/png, image/jpg" />
-                                    </div>
-                                </div>
-
-                                <!-- input pour le nom -->
-                                <label for="nickname" class="mt-3">Nom</label>
-                                <div class="icone">
-                                    <input type="text" name="nickname" id="nickname" class="form-control mb-4" placeholder="Nom">
-                                    <i class="fas fa-check-circle"></i>
-                                    <i class="fas fa-exclamation-circle"></i>
+                                <div class="photo" id="display-image">
+                                    <img id="img" alt="">
+                                    <label for="image-input">
+                                        <i class="fas fa-upload fa-2x"></i>
+                                    </label>
                                 </div>
                                 <div>
-                                    <span id="errorNom"></span>
+                                    <input type="file" id="image-input" onchange="loadFile(event)" accept="image/png, image/jpg" />
                                 </div>
+                            </div>
 
-                                <!-- input pour l'email -->
-                                <label for="inputEmailRegister">Email</label>
-                                <div class="icone">
-                                    <input type="text" value="" name="email" id="inputEmailRegister" class="form-control" autocomplete="email" placeholder="Adresse email">
-                                    <i class="fas fa-check-circle"></i>
-                                    <i class="fas fa-exclamation-circle"></i>
-                                </div>
-                                <div>
-                                    <span id="errorEmailRegister"></span>
-                                </div>
+                            <!-- input pour le nom -->
+                            <label for="nickname" class="mt-3">Pseudo</label>
+                            <div class="icone">
+                                <input type="text" name="nickname" id="nickname" class="form-control mb-4" placeholder="Entrez votre pseudo">
+                                <i class="fas fa-check-circle"></i>
+                                <i class="fas fa-exclamation-circle"></i>
+                            </div>
+                            <div>
+                                <span id="errorNom"></span>
+                            </div>
 
-                                <!-- input pour le mot de passe -->
-                                <label for="inputPasswordRegister" class="mt-3">Mot de passe</label>
-                                <div class="icone">
-                                    <input type="password" name="password" id="inputPasswordRegister" class="form-control" autocomplete="current-password" placeholder="Mot de passe (minimum 6 caractères)">
-                                    <i class="fas fa-check-circle"></i>
-                                    <i class="fas fa-exclamation-circle"></i>
-                                    <i class="far fa-eye" id="togglePasswordRegister"></i>
-                                </div>
-                                <div>
-                                    <span id="errorPasswordRegister"></span>
-                                </div>
+                            <!-- input pour le tel -->
+                            <label for="telephone" class="mt-3">Téléphone</label>
+                            <div class="icone">
+                                <input type="text" name="telephone" id="telephone" class="form-control mb-4" placeholder="Entrez votre numéro de téléphone">
+                                <i class="fas fa-check-circle"></i>
+                                <i class="fas fa-exclamation-circle"></i>
+                            </div>
+                            <div>
+                                <span id="errorTel"></span>
+                            </div>
 
-                                <!-- input pour la confirmation du mot de passe -->
-                                <label for="inputConfirmPasswordRegister" class="mt-3">Confirmation de mot de passe</label>
-                                <div class="icone">
-                                    <input type="password" name="confirmPassword" id="inputConfirmPasswordRegister" class="form-control" autocomplete="current-password" placeholder="Mot de passe (minimum 6 caractères)">
-                                    <i class="fas fa-check-circle"></i>
-                                    <i class="fas fa-exclamation-circle"></i>
-                                    <i class="far fa-eye" id="togglePassword-verifRegister"></i>
-                                </div>
-                                <div>
-                                    <span id="errorPassword-verifRegister"></span>
-                                </div>
+                            <!-- input pour l'email -->
+                            <label for="inputEmailRegister">Email</label>
+                            <div class="icone">
+                                <input type="text" value="" name="email" id="inputEmailRegister" class="form-control" autocomplete="email" placeholder="Entrez votre adresse email">
+                                <i class="fas fa-check-circle"></i>
+                                <i class="fas fa-exclamation-circle"></i>
+                            </div>
+                            <div>
+                                <span id="errorEmailRegister"></span>
+                            </div>
+
+                            <!-- input pour le mot de passe -->
+                            <label for="inputPasswordRegister" class="mt-3">Mot de passe</label>
+                            <div class="icone">
+                                <input type="password" name="password" id="inputPasswordRegister" class="form-control" autocomplete="current-password" placeholder="Entrez votre mot de passe (minimum 6 caractères)">
+                                <i class="fas fa-check-circle"></i>
+                                <i class="fas fa-exclamation-circle"></i>
+                                <i class="far fa-eye" id="togglePasswordRegister"></i>
+                            </div>
+                            <div>
+                                <span id="errorPasswordRegister"></span>
+                            </div>
+
+                            <!-- input pour la confirmation du mot de passe -->
+                            <label for="inputConfirmPasswordRegister" class="mt-3">Confirmation de mot de passe</label>
+                            <div class="icone">
+                                <input type="password" name="confirmPassword" id="inputConfirmPasswordRegister" class="form-control" autocomplete="current-password" placeholder="Confirmez vote mot de passe (minimum 6 caractères)">
+                                <i class="fas fa-check-circle"></i>
+                                <i class="fas fa-exclamation-circle"></i>
+                                <i class="far fa-eye" id="togglePassword-verifRegister"></i>
+                            </div>
+                            <div>
+                                <span id="errorPassword-verifRegister"></span>
+                            </div>
 
 
                             <div class="card-button">

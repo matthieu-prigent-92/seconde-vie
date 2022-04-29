@@ -72,12 +72,12 @@ endif;
 
 
 
-<form method="post" action="">
 
-    <div class="mask d-flex align-items-center h-100 gradient-custom-3">
-        <div class="container h-100">
-            <div class="row d-flex justify-content-center align-items-center h-100">
-                <div class="card-body p-5">
+<div class="mask d-flex align-items-center h-100 gradient-custom-3">
+    <div class="container h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="card-body p-5">
+                <form method="post" action="">
                     <!-- <h2 class="text-uppercase text-center mb-5">Connexion</h2> -->
 
                     <!-- input pour l'email -->
@@ -109,20 +109,24 @@ endif;
                             Se connecter
                         </button>
                     </div>
-                    <hr class="mb-3">
-                    <h6 class="text-center mb-1">Vous n'avez pas de compte ? </br></br>
-                        <a href="<?= SITE . "security/register.php"; ?>">Inscrivez-vous !</a>
-                    </h6>
-                </div>
+                </form>
+                <hr class="mb-3">
+                <h6 class="text-center mb-1">Vous n'avez pas de compte ? </br></br>
+                    <a href="<?= SITE . "security/register.php"; ?>">Inscrivez-vous !</a>
+                </h6>
             </div>
         </div>
     </div>
+</div>
 
-</form>
 <?php
 // Condition pour déterminer le lieu de redirection du fichier js
 if ($_SERVER['PHP_SELF'] == SITE . 'index.php') {
     // si on se trouve à la racine
 ?>
     <script src="js/formLogin.js"></script>
+<?php } else {
+    // si on se trouve dans un sous-dossiers
+?>
+    <script src="../js/formLogin.js"></script>
 <?php } ?>

@@ -1,4 +1,5 @@
-<?php require_once 'inc/header.php';
+<?php 
+require_once 'inc/header.php';
 
 if (isset($_GET['unset'])):
     unset($_SESSION['user']);
