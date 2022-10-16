@@ -56,10 +56,10 @@
 
                     ?>
                         <li class="nav-item">
-                            <a class="nav-link rounded btn btn-outline-danger" href="#">Déposer une annonce</a>
+                            <a class="nav-link rounded btn btn-outline-danger" href="<?= SITE . "admin/ajoutAnnonce.php"; ?>">Déposer une annonce</a>
                         </li>
                     <?php endif; ?>
-                    
+
 
                     <!-- <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
@@ -90,12 +90,17 @@
                 <?php if (!connect()) :
                 ?>
                     <div class="nav-connexion text-center ">
-                        <a href="#" class="nav-link btn btn-danger rounded" data-bs-toggle="modal" data-bs-target="#connexionModal">Se connecter</a>
+                        <a href="<?= SITE . 'security/login.php'; ?>" class="nav-link btn btn-danger rounded">Se connecter</a>
+
+                        <!-- Pour faire un bouton de connexion en modal -->
+                        <!-- <a href="<?= SITE . 'security/login.php'; ?>" class="nav-link btn btn-danger rounded" data-bs-toggle="modal" data-bs-target="#connexionModal">Se connecter</a> -->
+
+                        <!-- Bouton s'inscrire -->
                         <!-- <a href="<?= SITE . 'security/register.php'; ?>" class="btn btn-primary ">S'inscrire</a> -->
                     </div>
                 <?php else : ?>
                     <div class="text-center ">
-                        <a href="<?= SITE . '?unset=1'; ?>" class="btn mt-1"><i class="fa-solid fa-power-off"></i></a>
+                        <a href="<?= SITE . '?unset=1'; ?>" class="btn mt-1"><i class="fa-solid fa-power-off fa-2x"></i></a>
                     </div>
                 <?php endif; ?>
             </div>
@@ -107,7 +112,7 @@
                 foreach ($mess as $key => $message) :
         ?>
 
-                    <div class="alert alert-<?= $type; ?> text-center">
+                    <div id="message" class="alert alert-<?= $type; ?> text-center">
                         <p><?= $message; ?></p>
                     </div>
                     <?php unset($_SESSION['messages'][$type][$key]); ?>
@@ -116,8 +121,9 @@
         endif; ?>
 
 
+
         <!-- Modal connexion -->
-        <div class="modal fade" id="connexionModal" tabindex="-1" aria-labelledby="connexionModalLabel" aria-hidden="true">
+        <!-- <div class="modal fade" id="connexionModal" tabindex="-1" aria-labelledby="connexionModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -127,15 +133,15 @@
                     <div class="modal-body">
                         <?php
                         // Condition pour déterminer le lieu de redirection du fichier login
-                        if ($_SERVER['PHP_SELF'] == SITE . 'index.php') {
-                            // si on se trouve à la racine
-                            include 'security/login-modal.php';
-                        } else {
-                            // Si on se trouve dans un sous-dossier de la racine du site
-                            include '../security/login-modal.php';
-                        }
+                        // if ($_SERVER['PHP_SELF'] == SITE . 'index.php') {
+                        //     // si on se trouve à la racine
+                        //     include 'security/login-modal.php';
+                        // } else {
+                        //     // Si on se trouve dans un sous-dossier de la racine du site
+                        //     include '../security/login-modal.php';
+                        // }
                         ?>
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->

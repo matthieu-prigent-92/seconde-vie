@@ -81,7 +81,7 @@
   }
   
   /* INPUT et BUTTON */
-  #inputEmail, #inputPassword, #nickname, #inputConfirmPassword, #telephone, #inputEmailRegister, #inputPasswordRegister, #inputConfirmPasswordRegister {
+  #inputEmail, #inputPassword, #nickname, #inputConfirmPassword, #telephone, #inputEmailRegister, #inputPasswordRegister, #inputConfirmPasswordRegister, #nomArticle, #prixArticle, #descriptionArticle, #cpArticle, #villeArticle {
     width: 95%;
     height: 30px;
     padding-left: 10px;

@@ -72,13 +72,13 @@ if (!empty($_POST)) :
             ':email' => $_POST['email'],
             ':password' => $mdp,
             ':tel' => $_POST['telephone'],
-            ':roles' => 'ROLE_ADMIN'
+            ':roles' => 'ROLE_USER'
 
         ));
 
         $_SESSION['messages']['success'][] = "Félicitation, vous êtes à présent inscrit";
 
-        header('location:../');
+        header('location:./login.php');
         exit();
 
     else :

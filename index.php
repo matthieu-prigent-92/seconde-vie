@@ -73,7 +73,7 @@ endif;
                 <p class="card-text text-center"><?= $product['description']; ?></p>
             </div>
             <?php if (admin()): ?>
-                <a href="<?= SITE . 'admin/ajoutProduit.php?id=' . $product['id']; ?>" class="btn btn-secondary">Modifier</a>
+                <a href="<?= SITE . 'admin/ajoutAnnonce.php?id=' . $product['id']; ?>" class="btn btn-secondary">Modifier</a>
                 <a href="?id=<?= $product['id']; ?>" onclick="return confirm('Etes  vous sûr?')" class="btn btn-danger">Supprimer</a>
             <?php else: ?>
 

@@ -110,7 +110,7 @@ inputPasswordRegister.addEventListener("change", function (e) {
 inputPasswordVerif.addEventListener("change", function (e) {
   let passwordVerif = e.target.value;
 
-  if (passwordVerif == inputPassword.value) {
+  if (passwordVerif == inputPasswordRegister.value) {
     inputPasswordVerif.style.border = "2px solid #65da97";
     errorPasswordVerif.innerHTML = "";
     document.querySelector(
