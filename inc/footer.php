@@ -10,7 +10,7 @@
         }
     }
 </script>
-
+<script>src="<?= SITE . "js/app.js"?>"</script>
 </body>
 
 </html>

@@ -17,3 +17,7 @@ for (var i = 0; i < n; i++) {
   }
 }
 
+function modal() {
+  el = document.getElementById("annonceModal");
+  el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
+  }
