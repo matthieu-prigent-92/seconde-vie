@@ -3,7 +3,7 @@ require_once 'inc/header.php';
 
 
 $resultatModal = executeRequete("SELECT * FROM product WHERE id = :id", array(
-    'id' => $_GET['id']
+    ':id' => $_GET['id']
 ));
 
 // $productsModal = $resultatModal->fetchAll(PDO::FETCH_ASSOC);

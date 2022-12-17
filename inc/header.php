@@ -14,7 +14,8 @@
 
     // Décomposition du PHP_SELF
     $phpself = explode('/', $_SERVER['PHP_SELF']);
-    if (array_pop($phpself) == 'index.php') {
+    $lastElement = end($phpself);
+    if ($lastElement == 'index.php' || $lastElement == 'annonce.php' || $lastElement == 'test.php') {
         // si on se trouve à la racine
     ?>
 
@@ -38,7 +39,7 @@
 
     <?php require_once 'init.php';
 
-    ?>
+?>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light mb-5">
         <div class="container-fluid">
@@ -119,29 +120,3 @@
         <?php endforeach;
             endforeach;
         endif; ?>
-
-
-
-        <!-- Modal connexion -->
-        <!-- <div class="modal fade" id="connexionModal" tabindex="-1" aria-labelledby="connexionModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="connexionModalLabel">Connexion</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <?php
-                        // Condition pour déterminer le lieu de redirection du fichier login
-                        // if ($_SERVER['PHP_SELF'] == SITE . 'index.php') {
-                        //     // si on se trouve à la racine
-                        //     include 'security/login-modal.php';
-                        // } else {
-                        //     // Si on se trouve dans un sous-dossier de la racine du site
-                        //     include '../security/login-modal.php';
-                        // }
-                        ?>
-                    </div>
-                </div>
-            </div>
-        </div> -->

@@ -69,65 +69,68 @@ endif;
             </div>
 
             <label id="<?= $product['id']; ?>">
-            <div class="card-body">
+                <div class="card-body">
 
 
-                <!-- Titre de l'annonce -->
-                <a href="<?= SITE . "front/annonce-modal.php?id=" . $product['id'] ?>" class="text-decoration-none">
-                    <h4 class="card-title"><?= $product['name']; ?></h4>
-                </a>
+                    <!-- Titre de l'annonce -->
+                    <a href="test.php?id=<?= $product['id'] ?>" class="text-decoration-none">
+                        <h4 class="card-title"><?= $product['name']; ?></h4>
+                    </a>
 
-                <!-- Description de l'annonce -->
-                <p class="card-text text-center"><?= $product['description']; ?></p>
+                    <!-- Description de l'annonce -->
+                    <p class="card-text text-center"><?= $product['description']; ?></p>
 
-                <!-- Prix de l'annonce -->
-                <h4 class="card-title text-end"><?= $product['price']; ?> €</h4>
+                    <!-- Prix de l'annonce -->
+                    <h4 class="card-title text-end"><?= $product['price']; ?> €</h4>
 
-                <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-danger button-annonce" data-bs-toggle="modal" data-bs-target="#annonceModal">
-                        Voir l'annonce
-                    </button>
-                        <!-- Pour afficher le modal -->
-                        <!-- Problème pour atteindre les autres éléments de la database -->
-                        <div class="modal fade popup_block" id="annonceModal" tabindex="0" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel"><?= $resultatModal['name']; ?></h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="container h-100">
-                                    <div class="row d-flex justify-content-center align-items-center h-100">
-                                        <!-- Insérer ici le href pour rediriger vers le modal -->
-                                        <div class="card-header text-center">
-                                            <img width="200" src="<?= $resultatModal['picture']; ?>" alt="">
+                    <a href="annonce.php?id=<?= $product['id'] ?>" class="text-decoration-none">
+                        <button type="button" class="btn btn-danger button-annonce">
+                            <!-- Button trigger modal -->
+                            <!-- <button type="button" class="btn btn-danger button-annonce" data-bs-toggle="modal" data-bs-target="#annonceModal"> -->
+                            Voir l'annonce
+                        </button>
+                    </a>
+                    <!-- Pour afficher le modal -->
+                    <!-- Problème pour atteindre les autres éléments de la database -->
+                    <!-- <div class="modal fade popup_block" id="annonceModal" tabindex="0" aria-labelledby="exampleModalLabel" aria-hidden="true">
 
-                                        </div>
-                                        <div class="card-body">
-                                            <!-- Titre de l'annonce -->
-                                            <h4 class="card-title"><?= $resultatModal['name']; ?></h4>
+                        <div class="modal-dialog">
+                            <div class="modal-content">
 
-                                            <!-- Description de l'annonce -->
-                                            <p class="card-text text-center"><?= $resultatModal['description']; ?></p>
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel"><?= $product['name']; ?></h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="container h-100">
+                                        <div class="row d-flex justify-content-center align-items-center h-100">
+                                            // Insérer ici le href pour rediriger vers le modal
+                                            <div class="card-header text-center">
+                                                <img width="200" src="<?= $product['picture']; ?>" alt="">
 
-                                            <!-- Prix de l'annonce -->
-                                            <h4 class="card-title text-end"><?= $resultatModal['price']; ?> €</h4>
+                                            </div>
+                                            <div class="card-body">
+                                                // Titre de l'annonce 
+                                                <h4 class="card-title"><?= $product['name']; ?></h4>
+
+                                                // Description de l'annonce
+                                                <p class="card-text text-center"><?= $product['description']; ?></p>
+
+                                                // Prix de l'annonce
+                                                <h4 class="card-title text-end"><?= $product['price']; ?> €</h4>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Save changes</button>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
+                    </div> -->
 
-            </div>
+                </div>
             </label>
 
             <!-- Boutons réservés aux modifications admin -->
